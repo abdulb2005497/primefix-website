@@ -1,0 +1,10 @@
+# Files to ignore
+.DS_Store
+Thumbs.db
+*.log
+.vscode/
+.idea/
+
+# Old versions
+index.html
+styles.css

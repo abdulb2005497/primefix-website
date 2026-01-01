@@ -1,0 +1,33 @@
+I need to create an advertisement page for a company that provides the following services: 
+•	AC technician
+•	Epoxy coating
+•	Water proofing
+•	Wall painting
+•	Tile fixing
+•	Electrics
+•	Plumbing
+•	Overall maintenance
+
+•	The company needs a high-level advertisement webpage, with a simple ‘contact us’ button. The contact us button should be effective and enable the user viewing the advertisement to contact the company for any enquiries. 
+
+•	I have a few photos of the companies work aswell, I need you to help me with the placement of the photos on the advertisement page. 
+
+STEP-BY-STEP PLAN:
+
+Create project folder structure - Set up files (index.html, styles.css, script.js, assets/images/)
+Generate complete HTML structure - Full page with hero, services, gallery, contact sections
+Generate modern CSS styling - Mobile-first responsive design with animations
+Generate JavaScript functionality - Lightbox, smooth scroll, form validation
+Organize and rename images - Rename your 10 images to img-01.jpg through img-10.jpg
+Add placeholder contact details - Use "Company Name", "000-000-0000", "email@example.com" placeholders
+Test page locally - Open in browser and verify everything works
+Create GitHub repo and deploy - Push to GitHub, deploy free on Cloudflare Pages
+
+What You Need From Client:
+
+Company name
+Phone number
+Email address
+WhatsApp number
+Logo (optional)
+Business hours
