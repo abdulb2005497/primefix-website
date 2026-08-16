@@ -8,13 +8,18 @@ export async function onRequestPost({ request, env }) {
     return new Response(JSON.stringify({ error: "Invalid request" }), { status: 400 });
   }
 
-  const { username, password } = body || {};
+  const { username: rawUsername, password: rawPassword } = body || {};
+  const username = typeof rawUsername === 'string' ? rawUsername.trim() : rawUsername;
+  const password = typeof rawPassword === 'string' ? rawPassword.trim() : rawPassword;
+
+  const adminUser = typeof env.ADMIN_USERNAME === 'string' ? env.ADMIN_USERNAME.trim() : env.ADMIN_USERNAME;
+  const adminPass = typeof env.ADMIN_PASSWORD === 'string' ? env.ADMIN_PASSWORD.trim() : env.ADMIN_PASSWORD;
 
   if (
     typeof username === "string" &&
     typeof password === "string" &&
-    username === env.ADMIN_USERNAME &&
-    password === env.ADMIN_PASSWORD
+    username === adminUser &&
+    password === adminPass
   ) {
     const cookie = await createSessionCookie(env.SESSION_SECRET);
     return new Response(JSON.stringify({ ok: true }), {
