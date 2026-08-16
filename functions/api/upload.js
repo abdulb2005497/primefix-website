@@ -41,6 +41,7 @@ export async function onRequestPost({ request, env }) {
 
     await env.MEDIA_BUCKET.put(key, file.stream(), {
       httpMetadata: { contentType: file.type || "application/octet-stream" },
+      customMetadata: { type: isVideo ? "video" : "image" },
     });
 
     uploaded.push(key);

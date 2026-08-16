@@ -9,6 +9,13 @@ export async function onRequestGet({ params, env }) {
 
   const headers = new Headers();
   object.writeHttpMetadata(headers);
+
+  const lowerKey = (key || "").toLowerCase();
+  const hasVideoExtension = /\.(mp4|mov|webm|m4v|avi|mkv|wmv|flv)$/i.test(lowerKey);
+  if (!headers.get("content-type") && hasVideoExtension) {
+    headers.set("content-type", "video/mp4");
+  }
+
   headers.set("etag", object.httpEtag);
   headers.set("Cache-Control", "public, max-age=31536000, immutable");
 
