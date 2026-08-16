@@ -29,6 +29,59 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
     // ============================================
+    // 1.5. PROJECT MEDIA (loaded from the admin-managed library)
+    // ============================================
+    const portfolioGrid = document.getElementById('portfolioGrid');
+    const extraPortfolio = document.getElementById('extraPortfolio');
+    const seeMoreContainer = document.getElementById('seeMoreContainer');
+    const VISIBLE_COUNT = 8; // how many show before "See More"
+
+    function portfolioItemHTML(item, index) {
+        const inner = item.type === 'video'
+            ? `<video src="${item.url}" muted loop></video>`
+            : `<img src="${item.url}" alt="Completed project" loading="lazy">`;
+        const overlayText = item.type === 'video' ? 'Play Video' : 'View Project';
+        return `
+            <div class="portfolio-item" data-index="${index}" data-type="${item.type}">
+                ${inner}
+                <div class="portfolio-overlay">
+                    <span class="view-text">${overlayText}</span>
+                </div>
+            </div>
+        `;
+    }
+
+    async function loadPortfolio() {
+        if (!portfolioGrid) return;
+        try {
+            const res = await fetch('/api/list');
+            const data = await res.json();
+            const items = data.items || [];
+
+            const visible = items.slice(0, VISIBLE_COUNT);
+            const extra = items.slice(VISIBLE_COUNT);
+
+            portfolioGrid.innerHTML = visible.map((item, i) => portfolioItemHTML(item, i)).join('');
+
+            if (extraPortfolio && seeMoreContainer) {
+                if (extra.length) {
+                    extraPortfolio.innerHTML = extra.map((item, i) => portfolioItemHTML(item, i + visible.length)).join('');
+                    seeMoreContainer.style.display = 'block';
+                } else {
+                    // Nothing left to collapse - hide the button and clear any stale content
+                    extraPortfolio.innerHTML = '';
+                    extraPortfolio.classList.remove('show');
+                    seeMoreContainer.style.display = 'none';
+                }
+            }
+        } catch (err) {
+            console.error('Could not load project media:', err);
+        } finally {
+            initializeLightbox();
+        }
+    }
+
+    // ============================================
     // 2. LIGHTBOX FUNCTIONALITY
     // ============================================
     const lightbox = document.getElementById('lightbox');
@@ -72,8 +125,8 @@ document.addEventListener('DOMContentLoaded', function() {
             });
         });
     }
-    
-    initializeLightbox();
+
+    loadPortfolio();
     
     function openLightbox(index) {
         currentImageIndex = index;
@@ -154,8 +207,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // 2.5. SEE MORE TOGGLE FUNCTIONALITY
     // ============================================
     const seeMoreBtn = document.getElementById('seeMoreBtn');
-    const extraPortfolio = document.getElementById('extraPortfolio');
-    
+
     if (seeMoreBtn && extraPortfolio) {
         seeMoreBtn.addEventListener('click', function() {
             const isExpanded = extraPortfolio.classList.contains('show');

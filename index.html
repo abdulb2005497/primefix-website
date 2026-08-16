@@ -161,59 +161,12 @@
                 <h2 class="section-title">Recent Projects</h2>
                 <p class="section-subtitle">View our completed work and quality standards</p>
             </div>
-            <div class="portfolio-grid">
-                <div class="portfolio-item" data-index="0">
-                    <img src="Images/gallery-01.jpg" alt="Completed project" loading="lazy">
-                    <div class="portfolio-overlay">
-                        <span class="view-text">View Project</span>
-                    </div>
-                </div>
-                <div class="portfolio-item" data-index="1">
-                    <img src="Images/gallery-02.jpg" alt="Completed project" loading="lazy">
-                    <div class="portfolio-overlay">
-                        <span class="view-text">View Project</span>
-                    </div>
-                </div>
-                <div class="portfolio-item" data-index="2">
-                    <img src="Images/gallery-03.jpg" alt="Completed project" loading="lazy">
-                    <div class="portfolio-overlay">
-                        <span class="view-text">View Project</span>
-                    </div>
-                </div>
-                <div class="portfolio-item" data-index="3">
-                    <img src="Images/gallery-04.jpg" alt="Completed project" loading="lazy">
-                    <div class="portfolio-overlay">
-                        <span class="view-text">View Project</span>
-                    </div>
-                </div>
-                <div class="portfolio-item" data-index="4">
-                    <img src="Images/gallery-05.jpg" alt="Completed project" loading="lazy">
-                    <div class="portfolio-overlay">
-                        <span class="view-text">View Project</span>
-                    </div>
-                </div>
-                <div class="portfolio-item" data-index="5">
-                    <img src="Images/gallery-06.jpg" alt="Completed project" loading="lazy">
-                    <div class="portfolio-overlay">
-                        <span class="view-text">View Project</span>
-                    </div>
-                </div>
-                <div class="portfolio-item" data-index="6">
-                    <img src="Images/gallery-07.jpg" alt="Completed project" loading="lazy">
-                    <div class="portfolio-overlay">
-                        <span class="view-text">View Project</span>
-                    </div>
-                </div>
-                <div class="portfolio-item" data-index="7">
-                    <img src="Images/featured-project.jpg" alt="Completed project" loading="lazy">
-                    <div class="portfolio-overlay">
-                        <span class="view-text">View Project</span>
-                    </div>
-                </div>
+            <div class="portfolio-grid" id="portfolioGrid">
+                <!-- Populated automatically from the admin-managed media library -->
             </div>
-            
-            <!-- See More Button -->
-            <div class="see-more-container">
+
+            <!-- See More Button (shown only when there are extra items) -->
+            <div class="see-more-container" id="seeMoreContainer" style="display:none;">
                 <button class="see-more-btn" id="seeMoreBtn">
                     <span class="see-more-text">See More Projects</span>
                     <svg class="see-more-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -221,69 +174,10 @@
                     </svg>
                 </button>
             </div>
-            
-            <!-- Additional Portfolio Items (Hidden by Default) -->
+
+            <!-- Additional items (hidden by default) -->
             <div class="portfolio-grid portfolio-grid-extra" id="extraPortfolio">
-                <div class="portfolio-item" data-index="8" data-type="image">
-                    <img src="Videos/whatsapp image 2.jpeg" alt="Additional project" loading="lazy">
-                    <div class="portfolio-overlay">
-                        <span class="view-text">View Project</span>
-                    </div>
-                </div>
-                <div class="portfolio-item" data-index="9" data-type="image">
-                    <img src="Videos/WhatsApp Image 2025-12-30 at 07.39.37.jpeg" alt="Additional project" loading="lazy">
-                    <div class="portfolio-overlay">
-                        <span class="view-text">View Project</span>
-                    </div>
-                </div>
-                <div class="portfolio-item" data-index="10" data-type="image">
-                    <img src="Videos/WhatsApp Image 2025-12-30 at 07.39.38.jpeg" alt="Additional project" loading="lazy">
-                    <div class="portfolio-overlay">
-                        <span class="view-text">View Project</span>
-                    </div>
-                </div>
-                <div class="portfolio-item" data-index="11" data-type="video">
-                    <video src="Videos/video 4.mp4" muted loop></video>
-                    <div class="portfolio-overlay">
-                        <span class="view-text">Play Video</span>
-                    </div>
-                </div>
-                <div class="portfolio-item" data-index="12" data-type="video">
-                    <video src="Videos/video 6.mp4" muted loop></video>
-                    <div class="portfolio-overlay">
-                        <span class="view-text">Play Video</span>
-                    </div>
-                </div>
-                <div class="portfolio-item" data-index="13" data-type="video">
-                    <video src="Videos/WhatsApp Video 2025-12-30 at 07.39.03.mp4" muted loop></video>
-                    <div class="portfolio-overlay">
-                        <span class="view-text">Play Video</span>
-                    </div>
-                </div>
-                <div class="portfolio-item" data-index="14" data-type="video">
-                    <video src="Videos/WhatsApp Video 2025-12-30 at 07.39.35.mp4" muted loop></video>
-                    <div class="portfolio-overlay">
-                        <span class="view-text">Play Video</span>
-                    </div>
-                </div>
-                <div class="portfolio-item" data-index="15" data-type="video">
-                    <video src="Videos/WhatsApp Video 2025-12-30 at 07.39.36.mp4" muted loop></video>
-                    <div class="portfolio-overlay">
-                        <span class="view-text">Play Video</span>
-                    </div>
-                </div>
-                <div class="portfolio-item" data-index="16" data-type="video">
-                    <video src="Videos/WhatsApp Video 2025-12-30 at 07.39.37.mp4" muted loop></video>
-                    <div class="portfolio-overlay">
-                        <span class="view-text">Play Video</span>
-                    </div>
-                </div>
-                <div class="portfolio-item" data-index="17" data-type="video">
-                    <video src="Videos/WhatsApp Video 2025-12-30 at 07.39.38.mp4" muted loop></video>
-                    <div class="portfolio-overlay">
-                        <span class="view-text">Play Video</span>
-                    </div>
-                </div>
+                <!-- Populated automatically from the admin-managed media library -->
             </div>
         </div>
     </section>
